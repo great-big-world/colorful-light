@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "colorful_lighting",
+  "version": "${version}",
+  "name": "Colorful Light",
+  "description": "",
+  "authors": [
+    "erykczy",
+    "creoii"
+  ],
+  "contact": {},
+  "license": "All Rights Reserved",
+  "icon": "assets/colorful_lighting/icon.png",
+  "environment": "*",
+  "accessWidener": "colorful_lighting.accesswidener",
+  "mixins": [
+    "colorful_lighting.mixins.json"
+  ],
+  "entrypoints": {
+    "client": [
+      "dev.creoii.colorfullight.client.ColorfulLightClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

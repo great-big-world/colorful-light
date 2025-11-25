@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.creoii.colorfullight.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "dev.creoii.colorfullight.client.ColorfulLightMixinPlugin",
+  "mixins": [
+    "client.ChunkBlockLightProviderMixin",
+    "client.ChunkLightProviderMixin",
+    "client.compat.EntityDynamicLightSourceBehaviorMixin",
+    "client.compat.FlatLightPipelineMixin",
+    "client.compat.LambDynLightsMixin",
+    "client.compat.SmoothLightPipelineMixin"
+  ],
+  "client": [
+    "client.AmbientOcclusionCalculatorMixin",
+    "client.EntityRendererMixin",
+    "client.FluidRendererMixin",
+    "client.LeashFeatureRendererMixin",
+    "client.LightmapCoordinatesRetrieverMixin",
+    "client.WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

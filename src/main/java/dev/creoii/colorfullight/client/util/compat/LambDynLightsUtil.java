@@ -23,6 +23,10 @@ public class LambDynLightsUtil {
             lightColor = ColorRGB4.fromRGB8(0, 0, 255);
         } else if (entity.getType() == EntityType.VEX) {
             lightColor = ColorRGB4.fromRGB8(63, 63, 255);
+        } else if (entity.getType() == EntityType.EXPERIENCE_ORB) {
+            lightColor = ColorRGB4.fromRGB8(175, 255, 0);
+        } else if (entity.getType() == EntityType.GLOW_SQUID) {
+            lightColor = ColorRGB4.fromRGB8(40, 255, 200);
         }
 
         boolean submergedInFluid = isEyeSubmergedInFluid(entity);

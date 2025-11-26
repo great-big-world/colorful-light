@@ -51,4 +51,14 @@ public class ViewArea {
     public int hashCode() {
         return Objects.hash(minX, minZ, maxX, maxZ);
     }
+
+    @Override
+    public String toString() {
+        return "ViewArea{" +
+                "minX=" + minX +
+                ", minZ=" + minZ +
+                ", maxX=" + maxX +
+                ", maxZ=" + maxZ +
+                '}';
+    }
 }

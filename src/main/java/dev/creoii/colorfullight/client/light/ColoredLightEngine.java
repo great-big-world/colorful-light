@@ -216,7 +216,7 @@ public class ColoredLightEngine {
      * It propagates decreases (decreases of light values, e.g. light source has been destroyed, solid block has been placed in the path of light).
      * Changes caused by block updates are applied on the main thread to avoid light flickering
      */
-    private class LightPropagator implements Runnable {
+    public class LightPropagator implements Runnable {
         /**
          * light changes that are not yet ready to be visible on main thread
          */
@@ -292,7 +292,7 @@ public class ColoredLightEngine {
         /**
          * apply ready light changes to storage
          */
-        private void applyReadyLightChanges() {
+        public void applyReadyLightChanges() {
             lightChangesReadyLock.lock();
             synchronized (dirtySections) {
                 for (var entry : lightChangesReady.entrySet()) {

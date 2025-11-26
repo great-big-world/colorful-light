@@ -38,9 +38,6 @@ public abstract class LambDynLightsMixin {
     public abstract boolean shouldTick(EntityDynamicLightSource entity);
 
     @Shadow
-    public abstract boolean shouldTick(DeferredDynamicLightSource source);
-
-    @Shadow
     @Final
     private List<DynamicLightSource> toClear;
 

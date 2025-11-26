@@ -17,12 +17,13 @@ public interface EntityDynamicLightSourceBehaviorMixin {
     @Inject(method = "tickEntity", at = @At("TAIL"))
     private static void gbw$tickEntityColoredLightMovement(Entity entity, CallbackInfo ci, @Local(name = "lightSource") EntityDynamicLightSourceBehavior lightSource) {
         if (LambDynLights.get().shouldTick(lightSource)) {
-            BlockPos prev = BlockPos.ofFloored(lightSource.getDynamicLightPrevX(), lightSource.getDynamicLightPrevY(), lightSource.getDynamicLightPrevZ());
-            BlockPos curr = BlockPos.ofFloored(lightSource.getDynamicLightX(), lightSource.getDynamicLightY(), lightSource.getDynamicLightZ());
-
-            if (prev.equals(curr))
+            double x = lightSource.getDynamicLightPrevX() - lightSource.getDynamicLightX();
+            double y = lightSource.getDynamicLightPrevY() - lightSource.getDynamicLightY();
+            double z = lightSource.getDynamicLightPrevZ() - lightSource.getDynamicLightZ();
+            if (x * x + y * y + z * z <= .01d)
                 return;
 
+            BlockPos prev = BlockPos.ofFloored(lightSource.getDynamicLightPrevX(), lightSource.getDynamicLightPrevY(), lightSource.getDynamicLightPrevZ());
             ColorRGB4 lightColor = ColoredLightEngine.getInstance().getStorage().getEntry(prev);
 
             if (lightColor == null)

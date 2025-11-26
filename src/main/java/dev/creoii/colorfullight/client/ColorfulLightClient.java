@@ -29,13 +29,13 @@ public class ColorfulLightClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            ClientPlayerEntity player = client.player;
+        ClientTickEvents.END_WORLD_TICK.register(clientWorld -> {
+            ClientPlayerEntity player = MinecraftClient.getInstance().player;
             if (player == null)
                 return;
 
             ChunkPos pos = player.getChunkPos();
-            int renderDistance = client.options.getClampedViewDistance();
+            int renderDistance = MinecraftClient.getInstance().options.getClampedViewDistance();
             ViewArea viewArea = new ViewArea(pos.x - renderDistance, pos.z - renderDistance, pos.x + renderDistance, pos.z + renderDistance);
             ColoredLightEngine.getInstance().updateViewArea(viewArea);
         });

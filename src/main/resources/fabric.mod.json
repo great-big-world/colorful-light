@@ -9,7 +9,7 @@
     "creoii"
   ],
   "contact": {},
-  "license": "All Rights Reserved",
+  "license": "MIT",
   "icon": "assets/colorful_lighting/icon.png",
   "environment": "*",
   "accessWidener": "colorful_lighting.accesswidener",

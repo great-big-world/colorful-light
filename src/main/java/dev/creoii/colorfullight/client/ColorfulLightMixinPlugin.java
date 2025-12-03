@@ -27,11 +27,14 @@ public class ColorfulLightMixinPlugin implements IMixinConfigPlugin {
         else if ("dev.creoii.colorfullight.client.mixin.client.compat.LambDynLightsMixin".equals(mixinClassName)) {
             return FabricLoader.getInstance().isModLoaded("lambdynlights");
         }
-        if ("dev.creoii.colorfullight.client.mixin.client.compat.FlatLightPipelineMixin".equals(mixinClassName)) {
+        else if ("dev.creoii.colorfullight.client.mixin.client.compat.FlatLightPipelineMixin".equals(mixinClassName)) {
             return FabricLoader.getInstance().isModLoaded("sodium");
         }
         else if ("dev.creoii.colorfullight.client.mixin.client.compat.SmoothLightPipelineMixin".equals(mixinClassName)) {
             return FabricLoader.getInstance().isModLoaded("sodium");
+        }
+        else if ("dev.creoii.colorfullight.client.mixin.client.compat.AoCalculatorMixin".equals(mixinClassName)) {
+            return FabricLoader.getInstance().isModLoaded("fabric-renderer-indigo");
         }
         return true;
     }

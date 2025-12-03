@@ -8,7 +8,6 @@ import dev.creoii.colorfullight.client.util.ColorRGB8;
 import dev.creoii.colorfullight.client.util.PackedLightData;
 import dev.creoii.colorfullight.client.util.compat.LambDynLightsUtil;
 import dev.lambdaurora.lambdynlights.LambDynLights;
-import dev.lambdaurora.lambdynlights.engine.source.DeferredDynamicLightSource;
 import dev.lambdaurora.lambdynlights.engine.source.DynamicLightSource;
 import dev.lambdaurora.lambdynlights.engine.source.EntityDynamicLightSource;
 import dev.lambdaurora.lambdynlights.engine.source.EntityDynamicLightSourceBehavior;
@@ -22,7 +21,6 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.LightType;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,16 +28,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.List;
-
 @Mixin(LambDynLights.class)
 public abstract class LambDynLightsMixin {
     @Shadow
     public abstract boolean shouldTick(EntityDynamicLightSource entity);
-
-    @Shadow
-    @Final
-    private List<DynamicLightSource> toClear;
 
     @Inject(method = "getLightmapWithDynamicLight(Lnet/minecraft/world/BlockRenderView;Lnet/minecraft/util/math/BlockPos;I)I", at = @At("HEAD"), cancellable = true, remap = false)
     private void gbw$applyColorLightToDynamicLights(BlockRenderView world, BlockPos pos, int lightmap, CallbackInfoReturnable<Integer> cir) {

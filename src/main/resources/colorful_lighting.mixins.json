@@ -18,7 +18,8 @@
     "client.FluidRendererMixin",
     "client.LeashFeatureRendererMixin",
     "client.LightmapCoordinatesRetrieverMixin",
-    "client.WorldRendererMixin"
+    "client.WorldRendererMixin",
+    "client.compat.AoCalculatorMixin"
   ],
   "injectors": {
     "defaultRequire": 1
